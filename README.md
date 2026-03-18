@@ -1,2 +1,4 @@
-# backend-projects
-Learning a Bit of Backend
+# Bite Sized Python Projects
+Playing with the language while learning vim
+Rust is Next!
+
