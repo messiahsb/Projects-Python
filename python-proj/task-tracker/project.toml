@@ -1,0 +1,7 @@
+[build-system]
+
+[project]
+name = "task-cli"
+version = "1.0.0"
+
+
