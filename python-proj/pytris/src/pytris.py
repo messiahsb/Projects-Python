@@ -1,6 +1,7 @@
 #imports
 import pygame
 import random
+import sys
 
 #display dimensions
 SCREEN_WIDTH = 800
@@ -29,44 +30,67 @@ SHAPES = [
     [[1, 1], #O shape
      [1, 1]],
 
-    [[0,1,0] #T shape
+    [[0,1,0], #T shape
      [1,1,1]],
 
-    [[1,1,0] #Z shape
+    [[1,1,0], #Z shape
      [0,1,1]],
 
-    [[0,1,1] #S shape
+    [[0,1,1], #S shape
      [1,1,0]],
 
-    [[1,0,0] #J shape
+    [[1,0,0],  #J shape
      [1,1,1]],
 
-    [[0,0,1] #L shape
-     [1,1,1]],
+    [[0,0,1],   #L shape
+     [1,1,1]]
 ]
+
+FPS = 60
 #initialize pygame
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Pytris")
+clock = pygame.time.Clock()
 
+game_grid = [[0 for i in range(GRID_WIDTH)] for j in range(GRID_HEIGHT)]
+for row in game_grid:
+    for col in row:
+        print(col, end=" ") # print each element separated by space
+    print() # Add newline
+
+# draw the grid of the game on the screen
+def drawGrid():
+    for x in range(GRID_WIDTH): 
+        for y in range(GRID_HEIGHT):
+            rect = pygame.Rect(x*BLOCK_SIZE, y*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+            pygame.draw.rect(screen, WHITE, rect, 1)
+ 
 # game loop
 running = True
 while running:
+    #fill screen with black
+    screen.fill(BLACK)
+    drawGrid()
+    clock.tick(FPS)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
-    #fill screen with black
-    screen.fill(BLACK)
+        # if event.type == pygame.KEYDOWN:
+        #     if event.key == pygame.K_LEFT:
+        #         game.move_left()
 
     #update display
     pygame.display.flip()
 
     
 pygame.quit()
+sys.exit()
+
 
 class Piece(object):
     pass
 
 class Tetris():
     pass
+
