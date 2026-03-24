@@ -69,9 +69,6 @@ def drawGrid():
 # game loop
 running = True
 while running:
-    #fill screen with black
-    screen.fill(BLACK)
-    drawGrid()
     clock.tick(FPS)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -80,12 +77,25 @@ while running:
         #     if event.key == pygame.K_LEFT:
         #         game.move_left()
 
+    #fill screen with black
+    screen.fill(BLACK)
+    drawGrid()
     #update display
     pygame.display.flip()
 
     
 pygame.quit()
 sys.exit()
+
+
+def move_left():
+    pass
+def move_right():
+    pass
+def soft_drop(): 
+    pass
+def hard_drop(): 
+    pass
 
 
 class Piece(object):
