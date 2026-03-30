@@ -21,11 +21,13 @@ DARK_GREEN = (43, 52, 24)
 
 class Food():
     def __init__(self):
-        self.position = Vector2(5,6)
+        self.position = Vector2(random.randint(0, 30),random.randint(0, 25))
     
     def draw(self):
         food_rect = pygame.Rect(self.position.x*CELL_SIZE, self.position.y*CELL_SIZE, CELL_SIZE, CELL_SIZE)
         pygame.draw.rect(screen, DARK_GREEN, food_rect)
+
+
 
 food = Food()
 running = True
