@@ -35,8 +35,8 @@ class Food():
 
 class Snake():
     def __init__ (self):
-        self.body = [Vector2(0, 0)]
-        self.direction = Vector2(0,0)
+        self.body = [Vector2(8, 5), Vector2(7, 5), Vector2(6, 5)]
+        self.direction = Vector2(1,0)
         
     def draw(self):
         for seg in self.body:
@@ -47,11 +47,12 @@ class Snake():
         self.direction = dir
     
     def update(self):
-        if len(self.body) > 1:
-            self.body = self.body[:-1]
-            self.body.insert(0, self.body[0] + self.direction)
-        else:
-            self.body[0]+=self.direction
+        self.body = self.body[:-1]
+        self.body.insert(0, self.body[0] + self.direction)
+
+
+    def grow_body(self):
+        self.body.append(self.body[-1] + self.direction)
 
 class Game():
     def __init__(self):
