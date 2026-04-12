@@ -87,20 +87,23 @@ while running:
 pygame.quit()
 sys.exit()
 
-
-def move_left():
-    pass
-def move_right():
-    pass
-def soft_drop(): 
-    pass
-def hard_drop(): 
-    pass
-
-
-class Piece(object):
-    pass
+class Piece(object): 
+    def move_left():
+        pass
+    def move_right():
+        pass
+    def soft_drop(): 
+        pass
+    def hard_drop(): 
+        pass
 
 class Tetris():
+   pass 
+
+def get_next_piece():
     pass
+
+def is_valid_move():
+    pass
+
 
