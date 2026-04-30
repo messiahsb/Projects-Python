@@ -1,15 +1,21 @@
+import { Routes, Route } from 'react-router-dom';
 import './App.css'
-import MovieCard from './components/MovieCard'
+import Home from './pages/Home';
+import Favorites from './pages/favorites';
+import NavBar from './components/NavBar';
 
-// componenet
+// component
 function App() {
   return (
-    // parent elements
-   //fragment
-    <>
-    <MovieCard movie={{title:"Fake Film", release_date:"2024"}}/>
-    <MovieCard movie={{title:"Fake Film P2", release_date:"2024"}}/>
-  </>
+    <div>
+      <NavBar />
+      <main className='main-content'>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/favorites' element={<Favorites />} />
+        </Routes>
+      </main>
+    </div>
   )
 }
 
